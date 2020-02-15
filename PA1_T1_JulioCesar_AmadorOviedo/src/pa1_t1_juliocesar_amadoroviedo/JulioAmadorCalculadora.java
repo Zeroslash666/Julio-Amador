@@ -15,7 +15,10 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
 
     int a=0;
     int b=0;
+    double c;
+    double d;
     int resultado;
+    double result;
     int suma=0;
     int conteo=0;
     
@@ -103,18 +106,38 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         btnresta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnresta.setText("-");
         btnresta.setPreferredSize(new java.awt.Dimension(51, 29));
+        btnresta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrestaActionPerformed(evt);
+            }
+        });
 
         btndivision.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btndivision.setText("/");
         btndivision.setPreferredSize(new java.awt.Dimension(51, 29));
+        btndivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndivisionActionPerformed(evt);
+            }
+        });
 
         btnmultiplicacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnmultiplicacion.setText("*");
         btnmultiplicacion.setPreferredSize(new java.awt.Dimension(51, 29));
+        btnmultiplicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmultiplicacionActionPerformed(evt);
+            }
+        });
 
         btnexponente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnexponente.setText("^");
         btnexponente.setPreferredSize(new java.awt.Dimension(51, 29));
+        btnexponente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnexponenteActionPerformed(evt);
+            }
+        });
 
         lblHistorial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -317,6 +340,71 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnsumaActionPerformed
+
+    private void btnrestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestaActionPerformed
+        // TODO add your handling code here:
+                conteo=conteo+1;
+                
+        a = Integer.parseInt(txta.getText());
+        b = Integer.parseInt(txtb.getText());
+        resultado=a-b;
+        
+        lbltotal.setText(String.valueOf(conteo));
+        lblresultado.setText(String.valueOf(resultado));
+     
+        
+    }//GEN-LAST:event_btnrestaActionPerformed
+
+    private void btnmultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmultiplicacionActionPerformed
+        // TODO add your handling code here:
+        
+                conteo=conteo+1;
+                
+        a = Integer.parseInt(txta.getText());
+        b = Integer.parseInt(txtb.getText());
+        resultado=a*b;
+        
+        lbltotal.setText(String.valueOf(conteo));
+        lblresultado.setText(String.valueOf(resultado));
+        
+        
+    }//GEN-LAST:event_btnmultiplicacionActionPerformed
+
+    private void btndivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndivisionActionPerformed
+        // TODO add your handling code here:
+        
+                conteo=conteo+1;
+                
+        a = Integer.parseInt(txta.getText());
+        b = Integer.parseInt(txtb.getText());
+        result=a/b;
+        
+        lbltotal.setText(String.valueOf(conteo));
+        lblresultado.setText(String.valueOf(result));
+        
+        
+        
+        
+    }//GEN-LAST:event_btndivisionActionPerformed
+
+    private void btnexponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexponenteActionPerformed
+        // TODO add your handling code here:
+        
+                 conteo=conteo+1;
+                
+        c = Double.parseDouble(txta.getText());
+        d = Double.parseDouble(txtb.getText());
+        result=Math.pow(c, d);
+        
+        lbltotal.setText(String.valueOf(conteo));
+        lblresultado.setText(String.valueOf(result));
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnexponenteActionPerformed
 
     /**
      * @param args the command line arguments

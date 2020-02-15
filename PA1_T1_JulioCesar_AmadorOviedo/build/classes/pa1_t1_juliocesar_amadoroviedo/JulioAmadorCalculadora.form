@@ -311,6 +311,9 @@
           <Dimension value="[51, 29]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnrestaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btndivision">
       <Properties>
@@ -322,6 +325,9 @@
           <Dimension value="[51, 29]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndivisionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnmultiplicacion">
       <Properties>
@@ -333,6 +339,9 @@
           <Dimension value="[51, 29]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmultiplicacionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnexponente">
       <Properties>
@@ -344,6 +353,9 @@
           <Dimension value="[51, 29]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnexponenteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
