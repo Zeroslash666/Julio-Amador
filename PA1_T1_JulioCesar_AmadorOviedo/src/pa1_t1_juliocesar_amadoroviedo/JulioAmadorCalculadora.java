@@ -6,6 +6,7 @@
 package pa1_t1_juliocesar_amadoroviedo;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +22,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
     double result;
     int suma=0;
     int conteo=0;
+    String operacion, tresultado, signo;
     
     public JulioAmadorCalculadora() {
         initComponents();
@@ -54,7 +56,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         lblHistorial = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblregistros = new javax.swing.JTable();
         btnquitar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
         lblSaludo5 = new javax.swing.JLabel();
@@ -143,7 +145,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         lblHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHistorial.setText("Historial:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblregistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", "", ""},
                 {null, null, null},
@@ -162,17 +164,18 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 80));
-        jTable1.setPreferredSize(new java.awt.Dimension(250, 64));
-        jTable1.setRowSelectionAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(30);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        tblregistros.setMaximumSize(new java.awt.Dimension(2147483647, 80));
+        tblregistros.setPreferredSize(new java.awt.Dimension(250, 64));
+        tblregistros.setRowHeight(17);
+        tblregistros.setRowSelectionAllowed(false);
+        tblregistros.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblregistros);
+        if (tblregistros.getColumnModel().getColumnCount() > 0) {
+            tblregistros.getColumnModel().getColumn(0).setResizable(false);
+            tblregistros.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tblregistros.getColumnModel().getColumn(1).setResizable(false);
+            tblregistros.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tblregistros.getColumnModel().getColumn(2).setResizable(false);
         }
 
         btnquitar.setText("Quitar");
@@ -295,7 +298,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
                                     .addComponent(lblresultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txta, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblSaludo1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,7 +321,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         lblnombre.getAccessibleContext().setAccessibleDescription("Calculador");
@@ -335,8 +338,32 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         b = Integer.parseInt(txtb.getText());
         resultado=a+b;
         
+        if (resultado>0)
+        {
+            signo="Positivo";
+            
+        } else {
+            signo="Negativo";
+        }
+                
         lbltotal.setText(String.valueOf(conteo));
         lblresultado.setText(String.valueOf(resultado));
+        operacion=(a+"+"+b);
+        tresultado=String.valueOf(resultado);
+        
+        JulioAmadorRegistros registros = new JulioAmadorRegistros(operacion, tresultado, signo);
+        JulioAmadorRegistroControler.agregarRegistroLista(registros);
+        
+        tblregistros.setModel(new javax.swing.table.DefaultTableModel(JulioAmadorRegistroControler.getListaRegistrosComoArreglo(),
+                new String [] { 
+                    "Operación", "Resultado", "Signo"        
+                        
+        }
+                
+        ));
+                
+        
+        
         
         
     }//GEN-LAST:event_btnsumaActionPerformed
@@ -453,7 +480,6 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblHistorial;
     private javax.swing.JLabel lblSaludo;
     private javax.swing.JLabel lblSaludo1;
@@ -464,6 +490,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
     private javax.swing.JLabel lblnombre;
     private javax.swing.JLabel lblresultado;
     private javax.swing.JLabel lbltotal;
+    private javax.swing.JTable tblregistros;
     private javax.swing.JTextField txta;
     private javax.swing.JTextField txtb;
     // End of variables declaration//GEN-END:variables
