@@ -477,9 +477,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
 
     private void btnquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitarActionPerformed
         // Para eliminar una linea de la tabla
-        
-        int fila=tblregistros.getSelectedRow();
-        tblregistros.remove(fila);
+                     
         
     }//GEN-LAST:event_btnquitarActionPerformed
 
@@ -496,8 +494,9 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
 
     private void tblregistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblregistrosMouseClicked
         // TODO add your handling code here:
+        int fila=tblregistros.getSelectedRow();
         
-        System.out.println("mirando");
+        System.out.println("numero fila:" +fila);
         
         
     }//GEN-LAST:event_tblregistrosMouseClicked

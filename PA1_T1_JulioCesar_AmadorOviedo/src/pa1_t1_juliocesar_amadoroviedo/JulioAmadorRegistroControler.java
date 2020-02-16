@@ -21,6 +21,11 @@ public class JulioAmadorRegistroControler {
         listaRegistros.add(registros);    
     }
     
+    public static void EliminarRegistroLista (JulioAmadorRegistros registros){
+        listaRegistros.remove(registros);
+    }
+    
+    
     public static Object [][] getListaRegistrosComoArreglo(){
         Object arreglo [][] = new Object[listaRegistros.size()][3];
         
