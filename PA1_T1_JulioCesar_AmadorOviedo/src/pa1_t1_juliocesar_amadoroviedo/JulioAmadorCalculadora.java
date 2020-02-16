@@ -177,6 +177,11 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
                 "Operacion", "Resultado", "Signo"
             }
         ));
+        tblregistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblregistrosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblregistros);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,6 +302,7 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         conteo=conteo+1;
+        
                 
         a = Integer.parseInt(txta.getText());
         b = Integer.parseInt(txtb.getText());
@@ -472,7 +478,8 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
     private void btnquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitarActionPerformed
         // Para eliminar una linea de la tabla
         
-        
+        int fila=tblregistros.getSelectedRow();
+        tblregistros.remove(fila);
         
     }//GEN-LAST:event_btnquitarActionPerformed
 
@@ -486,6 +493,14 @@ public class JulioAmadorCalculadora extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnregresarActionPerformed
+
+    private void tblregistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblregistrosMouseClicked
+        // TODO add your handling code here:
+        
+        System.out.println("mirando");
+        
+        
+    }//GEN-LAST:event_tblregistrosMouseClicked
 
     /**
      * @param args the command line arguments
