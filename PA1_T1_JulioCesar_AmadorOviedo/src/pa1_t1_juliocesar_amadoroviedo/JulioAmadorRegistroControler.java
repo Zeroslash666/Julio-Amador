@@ -35,6 +35,7 @@ public class JulioAmadorRegistroControler {
         return arreglo;
     }
     
+     
     
     public static void configurarRegistroActual (JulioAmadorRegistros registros){
         registroActual=registros;
